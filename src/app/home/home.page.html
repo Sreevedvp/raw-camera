@@ -1,20 +1,17 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-content [fullscreen]="true" class="camera-content">
+  <!-- Container for the camera preview plugin (critical for Web support and layout) -->
+  <div id="cameraPreview" class="camera-preview"></div>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <div class="camera-overlay">
+    <!-- Viewfinder area is transparent in SCSS -->
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+    <div class="error-container" *ngIf="!isCameraActive">
+      <p>Camera not active</p>
+      <button (click)="startCamera()">Retry</button>
+    </div>
+
+    <div class="controls-container">
+      <button class="shutter-button" (click)="captureImage()"></button>
+    </div>
   </div>
 </ion-content>

@@ -26,6 +26,17 @@
 @import "@ionic/angular/css/flex-utils.css";
 
 /**
+ * Global Transparency for Camera Preview
+ * We need the WebView to be transparent so the Camera (which sits behind it) is visible.
+ */
+body,
+ion-app,
+.ion-app {
+    background: transparent !important;
+    --background: transparent !important;
+}
+
+/**
  * Ionic Dark Mode
  * -----------------------------------------------------
  * For more info, please see:
